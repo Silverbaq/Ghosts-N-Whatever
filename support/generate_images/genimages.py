@@ -5,11 +5,11 @@
 
 import pyqrcode
 
-def genLocationQr( location, prepend="" ):
-    url = pyqrcode.create(fake_url+location)
-    url.png('location-qr-%s.png'%(location), scale=8)
+def genLocationQr( location, prepend="", path="tmp" ):
+    url = pyqrcode.create(prepend+location)
+    url.png('%s/location-qr-%s.png'%(path, location), scale=8)
 
 
 if __name__ == "__main__":
     villagename = "Cisnadie"
-    genLocationQr( villagename , prepend="")
+    genLocationQr( villagename , prepend="", path="tmp")
