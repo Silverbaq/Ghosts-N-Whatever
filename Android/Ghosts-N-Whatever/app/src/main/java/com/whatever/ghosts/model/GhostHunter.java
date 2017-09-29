@@ -5,4 +5,8 @@ package com.whatever.ghosts.model;
  */
 
 public class GhostHunter extends Character {
+
+    public GhostHunter(){
+
+    }
 }
