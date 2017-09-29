@@ -30,8 +30,8 @@ def genLocation( location, locationtype, prepend="", path="" ):
 
     # add text
     draw = ImageDraw.Draw(im)
-    font = ImageFont.truetype("OpenSans-Regular.ttf", 60)
-    draw.text((80, 250),location,(0,0,0),font=font)
+    font = ImageFont.truetype("OpenSans-Regular.ttf", 40)
+    draw.text((25, 400),prepend+location,(0,0,0),font=font)
 
     # write to file
     filename = ("%s/%s-%s.png"%(path, locationtype, location)).replace(' ', '-')
@@ -45,5 +45,12 @@ if __name__ == "__main__":
             readable_name = villagename.split('\t')[1].strip()
             print " - using", readable_name
             fn = genLocation( readable_name, 'village', path='.' )
+
+            print "ristretto %s"%fn
+
+    with open( '../romanians_names_top_100.txt', 'r') as list:
+        for surname in list:
+            print "surname: ", surname.strip()
+            fn = genLocation( surname.strip(), 'crypt', prepend="Family crypt of ", path='.' )
 
             print "ristretto %s"%fn
