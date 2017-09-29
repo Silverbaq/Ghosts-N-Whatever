@@ -5,4 +5,19 @@ package com.whatever.ghosts.model;
  */
 
 public abstract class Location {
+
+    public String name;
+
+    public Location(){
+
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

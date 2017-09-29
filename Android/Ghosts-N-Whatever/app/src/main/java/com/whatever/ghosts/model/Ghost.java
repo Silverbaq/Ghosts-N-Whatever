@@ -5,4 +5,8 @@ package com.whatever.ghosts.model;
  */
 
 public class Ghost extends Character {
+
+    public Ghost(){
+
+    }
 }
