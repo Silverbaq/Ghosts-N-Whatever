@@ -5,4 +5,8 @@ package com.whatever.ghosts.model;
  */
 
 public class TheRoad extends Location {
+
+    public TheRoad(){
+
+    }
 }
