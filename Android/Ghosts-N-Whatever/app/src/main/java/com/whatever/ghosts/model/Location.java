@@ -40,7 +40,7 @@ public class Location {
             switch (player.CharacterClass){
                 case Ghost:
                     if (player.Home.equals(this.Name)){
-                        if (crypt.getState()== Crypt.State.EMPTY) {
+                        if (crypt.state == Crypt.State.Empty) {
                             int value = player.Backpack.UseItem();
                             player.Score += value;
                         }
