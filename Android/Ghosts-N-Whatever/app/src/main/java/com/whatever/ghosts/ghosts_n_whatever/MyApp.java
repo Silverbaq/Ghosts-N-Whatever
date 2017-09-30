@@ -7,6 +7,7 @@ import android.support.multidex.MultiDex;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.whatever.ghosts.model.Character;
+import com.whatever.ghosts.model.Location;
 
 /**
  * Created by silverbaq on 30/09/2017.
@@ -32,8 +33,18 @@ public class MyApp extends Application {
         MultiDex.install(this);
     }
 
-    public static void AddUpdateCharacter(Character player){
+    public static void AddUpdateCharacter(Character player) {
         DatabaseReference db = myRef.child(gameID).child("Players").child(playerID);
         db.setValue(player);
+    }
+
+    public static void AddUpdateLocation(Location location) {
+        DatabaseReference db = null;
+        if (location.getVillage())
+            db = myRef.child(gameID).child("Locations").child("Village").child(location.Key);
+        else
+            db = myRef.child(gameID).child("Locations").child("Crypt").child(location.Key);
+
+        db.setValue(location);
     }
 }

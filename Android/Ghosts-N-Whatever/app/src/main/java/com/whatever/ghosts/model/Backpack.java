@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Backpack {
 
-    public List<Item> Items;
+    private List<Item> Items;
 
     public Backpack() {
 
@@ -19,16 +19,21 @@ public class Backpack {
     }
 
     public void addItem(Item item) {
-        if (this.Items.size() == 0) {
-            Items.add(item);
+        if (this.getItems().size() == 0) {
+            getItems().add(item);
         }
     }
 
     public int UseItem() {
-        if (this.Items.size() > 0) {
-            Item item = Items.remove(0);
-            return item.Value;
+        if (this.getItems().size() > 0) {
+            Item item = getItems().remove(0);
+            return item.getValue();
         }
         return 0;
+    }
+
+
+    public void setItems(List<Item> items) {
+        Items = items;
     }
 }
