@@ -94,11 +94,10 @@ if __name__ == "__main__":
     #
     #         print "ristretto %s"%fn
     #
-    fn = genCryptPic( 'Ciobanu', 'crypt', path='.' )
 
-    # with open( '../romanians_names_top_100.txt', 'r') as list:
-    #     for surname in list:
-    #         print "surname: ", surname.strip()
-    #         fn = genCryptPic( surname.strip(), 'crypt', prepend="Family crypt of ", path='.' )
-    #
-    #         #print "ristretto %s"%fn
+    with open( '../romanians_names_top_100.txt', 'r') as list:
+        for surname in list:
+            print "surname: ", surname.strip()
+            fn = genCryptPic( surname.strip(), 'crypt', path='.' )
+
+            #print "ristretto %s"%fn
