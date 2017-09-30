@@ -1,10 +1,10 @@
-package com.whatever.ghosts.com.whatever.ghosts.fragments;
+package com.whatever.ghosts.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +20,18 @@ import me.dm7.barcodescanner.zbar.ZBarScannerView;
 public class QRScanner extends Fragment implements ZBarScannerView.ResultHandler{
     final static String TAG = "QRScanner";
     private ZBarScannerView mScannerView;
+    IQRReadValue mCallback;
+
+    public interface IQRReadValue{
+        void readValue(String text);
+    }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mCallback = (IQRReadValue) context;
+    }
 
     public QRScanner() {
         // Required empty public constructor
@@ -41,8 +53,11 @@ public class QRScanner extends Fragment implements ZBarScannerView.ResultHandler
 
     @Override
     public void handleResult(Result rawResult) {
-        Toast.makeText(getActivity(), "Contents = " + rawResult.getContents() +
-                ", Format = " + rawResult.getBarcodeFormat().getName(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "Contents = " + rawResult.getContents() +
+        //        ", Format = " + rawResult.getBarcodeFormat().getName(), Toast.LENGTH_SHORT).show();
+
+        mCallback.readValue(rawResult.getContents());
+
         // Note:
         // * Wait 2 seconds to resume the preview.
         // * On older devices continuously stopping and resuming camera preview can result in freezing the app.
@@ -60,5 +75,7 @@ public class QRScanner extends Fragment implements ZBarScannerView.ResultHandler
     public void onPause() {
         super.onPause();
         mScannerView.stopCamera();
+
     }
+
 }

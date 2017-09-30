@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="50"
-        android:name="com.whatever.ghosts.com.whatever.ghosts.fragments.QRScanner" />
+        android:name="com.whatever.ghosts.fragments.QRScanner" />
 
     <ProgressBar
         android:id="@+id/progressBar2"

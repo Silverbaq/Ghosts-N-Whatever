@@ -8,16 +8,14 @@ import java.util.List;
 
 public class Backpack {
 
-    List<Item> items;
+    List<Item> Items;
 
     public Backpack() {
 
     }
 
     public List<Item> getItems(){
-        return this.items;
+        return this.Items;
     }
-    public void setItems(List<Item> items){
-        this.items = items;
-    }
+
 }

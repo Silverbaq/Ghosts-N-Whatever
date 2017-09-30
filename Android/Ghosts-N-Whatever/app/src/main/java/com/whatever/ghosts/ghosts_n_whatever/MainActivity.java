@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
 
-    Button btnCreate;
     Button btnJoin;
 
     @Override
@@ -59,16 +58,8 @@ public class MainActivity extends AppCompatActivity {
         });
         */
 
-        btnCreate = (Button) findViewById(R.id.activity_main_btnCreate);
+
         btnJoin = (Button) findViewById(R.id.activity_main_btnJoin);
-
-        btnCreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent = new Intent(MainActivity.this, Create.class);
-            }
-        });
-
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

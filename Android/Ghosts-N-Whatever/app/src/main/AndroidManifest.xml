@@ -18,11 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".CreateGame"></activity>
+        <activity android:name=".CreateGame" />
         <activity android:name=".ActiveGame" />
-        <activity android:name=".JoinGame"></activity>
-
+        <activity android:name=".JoinGame" />
+        <activity android:name=".AddLocationActivity"></activity>
     </application>
 
 </manifest>
