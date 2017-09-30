@@ -13,12 +13,18 @@ import com.whatever.ghosts.model.Character;
  */
 
 public class MyApp extends Application {
-    static FirebaseDatabase database = FirebaseDatabase.getInstance();
-    static DatabaseReference myRef = database.getReference("Games");
+    static FirebaseDatabase database;
+    static DatabaseReference myRef;
 
     public static String gameID = "";
     public static String playerID = "";
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Games");
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
