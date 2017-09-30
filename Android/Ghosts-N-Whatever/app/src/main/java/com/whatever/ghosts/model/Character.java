@@ -8,6 +8,9 @@ import java.util.List;
 
 public class Character {
 
+    public enum CharClass {
+        Ghost, Hunter, Robber
+    }
 
     public List<Location> Locations;
     public Location Home;
@@ -16,6 +19,8 @@ public class Character {
     public String Name;
     public Location CurrentLocation;
     public Backpack Backpack;
+    public CharClass CharacterClass;
+
 
     public Character(){
 
