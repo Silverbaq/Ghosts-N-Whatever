@@ -47,8 +47,9 @@ def genCryptPic( location, locationtype, prepend="", path="" ):
     # im = Image.new('RGBA', im_size, (255,255,255, 255))
     im = Image.open( backgroundfile, 'r' )
     im_size = im.size
+    print im_size
 
-    # load qr code½
+    # load qr code
     im_qrcode = Image.open( imagefile, 'r')
     maxsize = (400, 400)
     im_qr_sc = im_qrcode.resize(maxsize, Image.ANTIALIAS)
@@ -58,10 +59,25 @@ def genCryptPic( location, locationtype, prepend="", path="" ):
     offset = ((im_size[0] - im_qrcode_size[0]), 0)
     im.paste( im_qr_sc , offset)
 
-    # add text
+    # add text box
+    text_box_size = (650, 150)
+    print text_box_size
+    im_white_box = Image.new('RGBA', text_box_size, (255,255,255,255))
+    box_offset = ((im_size[0] - text_box_size[0]), (im_size[1] - text_box_size[1]))
+    im.paste( im_white_box , box_offset)
+
     draw = ImageDraw.Draw(im)
-    font = ImageFont.truetype("OpenSans-Regular.ttf", 40)
-    draw.text((25, 400),prepend+location,(0,0,0),font=font)
+    # loop to find biggest font
+    for i in range(600):
+        font = ImageFont.truetype("OpenSans-Regular.ttf", i)
+        size = font.getsize(prepend+location)
+        if (size[0] > 0.9*text_box_size[0]) or (size[1] > 0.9*text_box_size[1]):
+            break
+    box_centre = (im_size[0] - text_box_size[0]/2, im_size[1] - text_box_size[1]/2)
+    print box_centre
+    text_offset = ((box_centre[0]-size[0]/2), (box_centre[1]-size[1]/2))
+    print text_offset
+    draw.text(text_offset,prepend+location,(0,0,0),font=font)
 
     # write to file
     filename = ("%s/%s-%s.png"%(path, locationtype, location)).replace(' ', '-')
