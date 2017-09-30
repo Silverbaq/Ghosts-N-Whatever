@@ -22,10 +22,14 @@ public class AddLocationActivity extends AppCompatActivity implements QRScanner.
 
     String codeValue, locationType;
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_location);
+
+
 
         tvQRCode = (TextView) findViewById(R.id.activity_addLocation_tvQRCode);
         btnAddLocation = (Button) findViewById(R.id.activity_addLocation_btnAdd);
@@ -42,7 +46,6 @@ public class AddLocationActivity extends AppCompatActivity implements QRScanner.
                     location.Name = codeValue;
                 }
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("Games").child(MyApp.gameID).child("Locations").child(locationType).push();
                 myRef.setValue(location);
                 finish();

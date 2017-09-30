@@ -1,6 +1,7 @@
 package com.whatever.ghosts.fragments;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,7 +31,12 @@ public class QRScanner extends Fragment implements ZBarScannerView.ResultHandler
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mCallback = (IQRReadValue) context;
+        try {
+            Activity activity = (Activity) context;
+            mCallback = (IQRReadValue) activity;
+        } catch (Exception ex){
+
+        }
     }
 
     public QRScanner() {
