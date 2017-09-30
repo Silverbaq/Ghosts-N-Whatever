@@ -3,15 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.whatever.ghosts.ghosts_n_whatever.JoinGame">
 
     <EditText
-        android:id="@+id/activity_joingame_etGameName"
+        android:id="@+id/activity_joingame_etPlayerName"
         android:layout_width="281dp"
         android:layout_height="59dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"/>
+        android:text="Player Name"/>
+
+
+    <EditText
+        android:id="@+id/activity_joingame_etGameCode"
+        android:layout_width="281dp"
+        android:layout_height="59dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Game Code"/>
 
     <Button
         android:id="@+id/activity_joingame_btnJoin"
