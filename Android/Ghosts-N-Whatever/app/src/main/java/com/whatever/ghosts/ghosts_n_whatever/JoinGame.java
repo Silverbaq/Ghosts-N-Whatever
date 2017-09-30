@@ -57,6 +57,7 @@ public class JoinGame extends AppCompatActivity {
                 MyApp.gameID = gameKey;
 
                 DatabaseReference gameRef = database.getReference("Games").child(gameKey).child("Players").push();
+                MyApp.playerID = gameRef.getKey();
 
                 gameRef.setValue(character);
 

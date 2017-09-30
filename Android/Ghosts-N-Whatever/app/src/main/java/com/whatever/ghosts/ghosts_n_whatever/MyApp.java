@@ -10,6 +10,7 @@ import android.support.multidex.MultiDex;
 
 public class MyApp extends Application {
     public static String gameID = "";
+    public static String playerID = "";
 
 
     @Override
