@@ -1,5 +1,6 @@
 package com.whatever.ghosts.ghosts_n_whatever;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,9 +15,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.whatever.ghosts.model.Character;
 import com.whatever.ghosts.model.Game;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class JoinGame extends AppCompatActivity {
@@ -27,7 +30,7 @@ public class JoinGame extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Games");
 
-    List<Game> gameList = new ArrayList<Game>();
+    HashMap<String, String> gameList = new HashMap<>();
 
 
     @Override
@@ -44,7 +47,21 @@ public class JoinGame extends AppCompatActivity {
             public void onClick(View view) {
                 String gameCode = etGameCode.getText().toString();
                 String playerName = etPlayerName.getText().toString();
-                // TODO : make code to join a game
+
+                Character character = new Character();
+                character.Name = playerName;
+                character.Score = 0;
+                character.Frozen = false;
+
+                String gameKey = gameList.get(gameCode);
+                MyApp.gameID = gameKey;
+
+                DatabaseReference gameRef = database.getReference("Games").child(gameKey).child("Players").push();
+
+                gameRef.setValue(character);
+
+                Intent intent = new Intent(JoinGame.this, LobbyActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -53,10 +70,8 @@ public class JoinGame extends AppCompatActivity {
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    Game game = dataSnapshot.getValue(Game.class);
-                    gameList.add(game);
-                    Toast.makeText(JoinGame.this, ""+game.gameCode, Toast.LENGTH_SHORT).show();
-
+                Game game = dataSnapshot.getValue(Game.class);
+                gameList.put(game.GameCode, dataSnapshot.getKey());
             }
 
             @Override

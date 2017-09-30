@@ -6,7 +6,7 @@ import java.util.List;
  * Created by silverbaq on 29/09/2017.
  */
 
-public abstract class Character {
+public class Character {
 
 
     public List<Location> Locations;

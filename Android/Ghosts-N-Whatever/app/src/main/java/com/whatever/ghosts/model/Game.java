@@ -9,9 +9,9 @@ import java.util.List;
 public class Game {
 
     public enum GameState{
-        SETTINGUP,
-        RUNNING,
-        ENDED;
+        Creating,
+        Running,
+        Ended;
     }
 
     public List<Character> Characters;

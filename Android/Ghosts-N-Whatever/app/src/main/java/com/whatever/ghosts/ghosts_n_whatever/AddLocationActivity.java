@@ -8,7 +8,12 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.whatever.ghosts.fragments.QRScanner;
+import com.whatever.ghosts.model.Crypt;
+import com.whatever.ghosts.model.Location;
+import com.whatever.ghosts.model.Village;
 
 public class AddLocationActivity extends AppCompatActivity implements QRScanner.IQRReadValue {
 
@@ -28,7 +33,19 @@ public class AddLocationActivity extends AppCompatActivity implements QRScanner.
         btnAddLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO : Add informations to joined game on Firebase
+                Location location;
+                if (locationType.equals("Crypt")){
+                    location = new Crypt();
+                    location.Name = codeValue;
+                } else {
+                    location = new Village();
+                    location.Name = codeValue;
+                }
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Games").child(MyApp.gameID).child("Locations").child(locationType).push();
+                myRef.setValue(location);
+                finish();
             }
         });
     }

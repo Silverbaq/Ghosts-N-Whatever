@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,7 +22,8 @@
         <activity android:name=".CreateGame" />
         <activity android:name=".ActiveGame" />
         <activity android:name=".JoinGame" />
-        <activity android:name=".AddLocationActivity"></activity>
+        <activity android:name=".AddLocationActivity" />
+        <activity android:name=".LobbyActivity"></activity>
     </application>
 
 </manifest>
