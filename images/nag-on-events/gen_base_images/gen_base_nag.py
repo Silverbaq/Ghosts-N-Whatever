@@ -2,7 +2,7 @@ import pyqrcode
 import sys
 from PIL import Image, ImageDraw, ImageFont
 
-def genNag( location, state, event ):
+def genNagCrypt( location, state, event ):
     # create canvas
     im_size = (600, 900)
     im = Image.new('RGBA', im_size, (255,255,255, 255))
@@ -22,4 +22,8 @@ if __name__ == "__main__":
     loc = 'crypt'
     for state in ('Empty', 'GhostDdelivering', 'HunterSettingTrap', 'RobberRobbing', 'GraveTrapped'):
         for event in ('HunterArriving', 'RobberArriving', 'OtherGhostArriving', 'HomeGhostArriving', 'Timeout'):
-            genNag( loc, state, event)
+            genNagCrypt( loc, state, event)
+
+    loc = 'village'
+    for event in ('HunterArriving', 'RobberArriving', 'GhostArriving'):
+        genNag( loc, event)
