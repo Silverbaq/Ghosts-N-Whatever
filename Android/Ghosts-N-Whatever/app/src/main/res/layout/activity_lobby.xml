@@ -41,7 +41,7 @@
                     android:id="@+id/imageGhost"
                     android:layout_width="100dp"
                     android:layout_height="150dp"
-                    android:src="@mipmap/GhostArriving"/>
+                    android:src="@mipmap/ghostarrive"/>
 
                 <TextView
                     android:id="@+id/textGhost"
@@ -58,7 +58,7 @@
                     android:id="@+id/imageGraverobber"
                     android:layout_width="100dp"
                     android:layout_height="150dp"
-                    android:src="@mipmap/GraverobberArriving"/>
+                    android:src="@mipmap/grarrive"/>
                 <TextView
                     android:id="@+id/textGraverobber"
                     android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
                     android:id="@+id/imageGhostHunter"
                     android:layout_width="100dp"
                     android:layout_height="150dp"
-                    android:src="@mipmap/GhostHunterArriving"/>
+                    android:src="@mipmap/gh_arrive"/>
                 <TextView
                     android:id="@+id/textGhostHunter"
                     android:layout_width="wrap_content"
