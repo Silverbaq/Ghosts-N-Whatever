@@ -8,7 +8,6 @@
     tools:context="com.whatever.ghosts.ghosts_n_whatever.CreateGame">
 
     <TextView
-        android:id="@+id/CreateNewGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create a new game"
@@ -17,32 +16,111 @@
         tools:layout_editor_absoluteX="62dp"
         tools:layout_editor_absoluteY="16dp" />
 
-    <TextView
-        android:id="@+id/GameCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Game Code :"
-        android:textSize="25sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="68dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/GameCodeValue"
-        android:layout_width="119dp"
-        android:layout_height="38dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="xyz123asd"
-        android:enabled="false"
-        tools:layout_editor_absoluteX="203dp"
-        tools:layout_editor_absoluteY="68dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Game Code :"
+            android:textSize="25sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="68dp" />
 
-    <TextView
-        android:id="@+id/GameTime"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/activity_createGame_GameCodeValue"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:text="xyz123asd" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Game time :"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/activity_createGame_GameTime"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Village"/>
+
+                <TextView
+                    android:id="@+id/activity_createGame_tvVillages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Crypts"/>
+
+                <TextView
+                    android:id="@+id/activity_createGame_tvCrypts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/activity_createGame_btnAddLocation"
+            android:text="Add Location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/activity_createGame_btnStartGame"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Game time :"
-        android:textSize="25sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="121dp" />
+        android:text="Start Game" />
 </LinearLayout>
