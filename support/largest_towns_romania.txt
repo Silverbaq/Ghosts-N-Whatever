@@ -1,35 +1,35 @@
-Băicoi
-Balș
-Bocșa
-Borșa
-Bragadiru
-Breaza
-Buftea
-Buhuși
-Cernavodă
-Chitila
-Cisnădie
-Comănești
-Corabia
-Cugir
-Filiași
-Găești
-Gura Humorului
-Luduș
-Mioveni (Colibaşi)
-Mizil
-Năvodari
-Negrești-Oaș
-Ocna Mureș
-Pantelimon
-Petrila
-Popești-Leordeni
-Pucioasa
-Râșnov
-Șimleu Silvaniei
-Ștefănești (Florica)
-Târgu Neamț
-Vișeu de Sus
-Voluntari
-Zărnești
-Zimnicea
+Băicoi	Baicoi
+Balș	Bals
+Bocșa	Bocsa
+Borșa	Borsa
+Bragadiru	Bragadiru
+Breaza	Breaza
+Buftea	Buftea
+Buhuși	Buhusi
+Cernavodă	Cernavoda
+Chitila	Chitila
+Cisnădie	Cisnadie
+Comănești	Comanesti
+Corabia	Corabia
+Cugir	Cugir
+Filiași	Filiasi
+Găești	Gaesti
+Gura Humorului	Gura Humorului
+Luduș	Ludus
+Mioveni (Colibaşi)	Mioveni
+Mizil	Mizil
+Năvodari	Navodari
+Negrești-Oaș	Negresti-Oas
+Ocna Mureș	Ocna Mures
+Pantelimon	Pantelimon
+Petrila	Petrila
+Popești-Leordeni	Popesti-Leordeni
+Pucioasa	Pucioasa
+Râșnov	Rasnov
+Șimleu Silvaniei	Simleu Silvaniei
+Ștefănești (Florica)	Stefanesti
+Târgu Neamț	Targu Neamt
+Vișeu de Sus	Viseu de Sus
+Voluntari	Voluntari
+Zărnești	Zarnesti
+Zimnicea	Zimnicea
