@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.whatever.ghosts.com.whatever.ghosts.fragments.QRScanner">
+    tools:context="com.whatever.ghosts.fragments.QRScanner">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

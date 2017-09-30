@@ -9,10 +9,11 @@
     tools:context="com.whatever.ghosts.ghosts_n_whatever.ActiveGame">
 
     <fragment
+        android:id="@+id/activity_game_qrScanner"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="50"
-        android:name="com.whatever.ghosts.com.whatever.ghosts.fragments.QRScanner" />
+        android:name="com.whatever.ghosts.fragments.QRScanner" />
 
     <ProgressBar
         android:id="@+id/progressBar2"

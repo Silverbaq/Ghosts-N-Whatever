@@ -8,16 +8,27 @@ import java.util.List;
 
 public class Backpack {
 
-    List<Item> items;
+    public List<Item> Items;
 
     public Backpack() {
 
     }
 
-    public List<Item> getItems(){
-        return this.items;
+    public List<Item> getItems() {
+        return this.Items;
     }
-    public void setItems(List<Item> items){
-        this.items = items;
+
+    public void addItem(Item item) {
+        if (this.Items.size() == 0) {
+            Items.add(item);
+        }
+    }
+
+    public int UseItem() {
+        if (this.Items.size() > 0) {
+            Item item = Items.remove(0);
+            return item.Value;
+        }
+        return 0;
     }
 }
