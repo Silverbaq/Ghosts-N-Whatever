@@ -14,45 +14,24 @@
             <h1>Game Overview</h1>
         </div>
         <div class="col-xs-4">
-            <h4 id="gamelobby">Game lobby: <span>XYZ</span></h4>
+            <h4>Game lobby: <span id="lobby">XYZ</span></h4>
         </div>
     </div>
 
-    <div class="col" id="timer">
+    <div class="col">
         <h3>Time left: <span id="timeleft">10.00</span></h3>
     </div>
 
         <div>
             <h2>Players:</h2>
+            <ol id="players">
+            </ol>
         </div>
 
-
-        <div class="row" id="players">
-            <div class="col-xs-6" id="name">
-                <p>Adam von Harkenbark:</p>
-            </div>
-            <div class="col-xs-6" id="score">
-                <p>
-                    2 pts.
-                </p>
-            </div>
-
-        </div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyB0apCFC3WRnF75Azql9EEvT4qEHBC6gVM",
-    authDomain: "ghostsandwhatever.firebaseapp.com",
-    databaseURL: "https://ghostsandwhatever.firebaseio.com",
-    projectId: "ghostsandwhatever",
-    storageBucket: "ghostsandwhatever.appspot.com",
-    messagingSenderId: "914678984501"
-  };
-  firebase.initializeApp(config);
-</script>
+<script src="./game.js"></script>
 
  </body>
 </html>

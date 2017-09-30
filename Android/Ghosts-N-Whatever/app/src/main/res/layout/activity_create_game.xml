@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.whatever.ghosts.ghosts_n_whatever.CreateGame">
+
+    <TextView
+        android:id="@+id/CreateNewGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create a new game"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/GameCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game Code :"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <EditText
+        android:id="@+id/GameCodeValue"
+        android:layout_width="119dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="xyz123asd"
+        android:enabled="false"
+        tools:layout_editor_absoluteX="203dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <TextView
+        android:id="@+id/GameTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game time :"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="121dp" />
+</LinearLayout>

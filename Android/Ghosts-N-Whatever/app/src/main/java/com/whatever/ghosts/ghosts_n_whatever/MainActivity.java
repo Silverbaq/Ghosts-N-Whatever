@@ -1,5 +1,6 @@
 package com.whatever.ghosts.ghosts_n_whatever;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,25 +19,18 @@ public class MainActivity extends AppCompatActivity {
 
     static String TAG = "MainActivity";
 
-    TextView tvDisplay;
-    EditText etValue;
-    Button btnClick;
-
-
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
 
-
+    Button btnCreate;
+    Button btnJoin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvDisplay = (TextView) findViewById(R.id.tvDisplay);
-        btnClick = (Button) findViewById(R.id.btnClick);
-        etValue = (EditText) findViewById(R.id.etValue);
-
+        /*
         btnClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +57,24 @@ public class MainActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+        */
 
+        btnCreate = (Button) findViewById(R.id.activity_main_btnCreate);
+        btnJoin = (Button) findViewById(R.id.activity_main_btnJoin);
+
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(MainActivity.this, Create.class);
+            }
+        });
+
+        btnJoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, JoinGame.class);
+                startActivity(intent);
+            }
+        });
     }
 }
