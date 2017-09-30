@@ -3,4 +3,26 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ghost_description">As a Ghost, your main objective is to... "Borrow" Souls from the local village, and return these souls to your family Crypt.
+        For Each soul delivered we will reward you with one afterlife token to be use in our afterlife-gift-shop. However, be aware! There are others out there trying to get to you.
+        If a Ghost Hunter traps you while you are entering your Crypt, or if he surprises you while delivering a soul, he will capture your essence.
+        Graverobbers may also come to your family crypt and steal from you your mortal remains.
+        Because of the massive amounts of paperwork these unfortunate events generates, mannagement has decided to deduct tokens from the victime of a Ghost Hunting or graverobbing.
+        If you however scare of Ghost Hunters or Graverobbers lingeringer in your Family Crypt, by arriving after a them, you will be rewared a complemetary token for "Teaching them not to mess with the deseased"
+        You now know what you need in order to succeed in the afterlife, so go out there, earn tokens and grab yourself a T-shirt, or maby even a hat!
+    </string>
+    <string name="graverobber_description">Greetings fellow Renovation Employee! Others may call us Graverobbers, but thats just because they do not understand the true values of recycling.
+        Our job is to visit crypts of the departed an "relieve" them of their worldy possesions, seeing as they do not need them anymore.
+        We have contacts in the local village, who are willing to purchace these items from you, and this is how we make a proffit.
+        Take care when visiting a crypt, however. If a Ghost or Ghost Hunter is residing in the crypt when you enter, or if you are supprised by a Ghost or Ghost Hunter, you will be frozen in fear, or arrested, taking you out of the game for some time.
+        The Ghost Hunters leave traps to capture the ghosts. These are easy to spot for us Graverobb.. i mean Renovation Emploees, and if they are delivered to the village, they can bring in some good bucks!
+        That is the basics of our job, so take care, and start making a living as a Graverobber! Whops...
+    </string>
+    <string name="ghosthunter_description">Calling all Ghost Hunters! The local villiage is in dire need of your help, as Ghosts and Graverobbers are at large.
+        Your assignment will be to buy traps from the village and setting them up in crypts. when a Gost is caught, you can deliver it back at the village for a reward, and resuply traps for more capture.
+        Graverobbers may seek to profit from your traps and disarm them for proffit. If you catch them in the act, or while they rob a crypt, you can arrest them, and deliver them to the village for a reward.
+        Other than trapping a crypt, you can surprise a Ghost, and collect it for delivery to the village.
+        If you however are cought by a Gost while planting a trap, you will be knocked out for some time and will lose your trap.
+        The nights ar getting darker and longer, and we need your help Ghost Hunter, to save us from our impending doom!
+    </string>
 </resources>
