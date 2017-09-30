@@ -50,11 +50,13 @@ def genCryptPic( location, locationtype, prepend="", path="" ):
 
     # load qr code½
     im_qrcode = Image.open( imagefile, 'r')
-    im_qrcode_size = im_qrcode.size
+    maxsize = (400, 400)
+    im_qr_sc = im_qrcode.resize(maxsize, Image.ANTIALIAS)
+    im_qrcode_size = im_qr_sc.size
 
     # add qr code to canvas
-    offset = ((im_size[0] - im_qrcode_size[0]) / 2, 15)
-    im.paste( im_qrcode, offset)
+    offset = ((im_size[0] - im_qrcode_size[0]), 0)
+    im.paste( im_qr_sc , offset)
 
     # add text
     draw = ImageDraw.Draw(im)
