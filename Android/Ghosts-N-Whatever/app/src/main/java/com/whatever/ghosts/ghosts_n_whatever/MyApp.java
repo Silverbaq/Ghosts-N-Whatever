@@ -17,6 +17,8 @@ public class MyApp extends Application {
     static FirebaseDatabase database;
     static DatabaseReference myRef;
 
+    public static Context myContext;
+
     public static String gameID = "";
     public static String playerID = "";
 
@@ -27,9 +29,12 @@ public class MyApp extends Application {
         myRef = database.getReference("Games");
     }
 
+
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        myContext = base;
         MultiDex.install(this);
     }
 

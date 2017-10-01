@@ -13,6 +13,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.whatever.ghosts.model.Backpack;
 import com.whatever.ghosts.model.Character;
 import com.whatever.ghosts.model.Game;
 
@@ -48,6 +49,8 @@ public class JoinGame extends AppCompatActivity {
                 character.setName(playerName);
                 character.setScore(0);
                 character.setFrozen(false);
+                Backpack pack = new Backpack();
+                character.setBackpack(pack);
 
                 String gameKey = gameList.get(gameCode);
                 MyApp.gameID = gameKey;
