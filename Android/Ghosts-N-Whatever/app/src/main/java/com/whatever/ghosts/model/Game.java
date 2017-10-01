@@ -34,7 +34,7 @@ public class Game {
     }
 
     public String getGameCode() {
-        return GameCode;
+        return GameCode.toString();
     }
 
     public void setGameCode(String gameCode) {
