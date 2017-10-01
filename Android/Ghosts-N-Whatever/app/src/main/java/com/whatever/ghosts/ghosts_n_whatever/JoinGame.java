@@ -7,20 +7,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.whatever.ghosts.model.Backpack;
 import com.whatever.ghosts.model.Character;
 import com.whatever.ghosts.model.Game;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class JoinGame extends AppCompatActivity {
     final String TAG = "JoinGame";
@@ -49,9 +46,11 @@ public class JoinGame extends AppCompatActivity {
                 String playerName = etPlayerName.getText().toString();
 
                 Character character = new Character();
-                character.Name = playerName;
-                character.Score = 0;
-                character.Frozen = false;
+                character.setName(playerName);
+                character.setScore(0);
+                character.setFrozen(false);
+                Backpack pack = new Backpack();
+                character.setBackpack(pack);
 
                 String gameKey = gameList.get(gameCode);
                 MyApp.gameID = gameKey;
@@ -71,8 +70,12 @@ public class JoinGame extends AppCompatActivity {
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Game game = dataSnapshot.getValue(Game.class);
-                gameList.put(game.GameCode, dataSnapshot.getKey());
+                try {
+                    Game game = dataSnapshot.getValue(Game.class);
+                    gameList.put("" + game.getGameCode(), dataSnapshot.getKey());
+                } catch (Exception ex){
+                    Log.e(TAG, ex.getMessage());
+                }
             }
 
             @Override

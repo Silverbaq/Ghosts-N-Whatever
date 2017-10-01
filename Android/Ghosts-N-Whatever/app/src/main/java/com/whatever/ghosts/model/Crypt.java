@@ -6,6 +6,30 @@ package com.whatever.ghosts.model;
 
 public class Crypt extends Location {
 
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public Ghost getHomeGhost() {
+        return homeGhost;
+    }
+
+    public void setHomeGhost(Ghost homeGhost) {
+        this.homeGhost = homeGhost;
+    }
+
+    public String getSetInStateBy() {
+        return setInStateBy;
+    }
+
+    public void setSetInStateBy(String setInStateBy) {
+        this.setInStateBy = setInStateBy;
+    }
+
     public enum State{
         Empty,
         GhostDelivering,
@@ -14,9 +38,9 @@ public class Crypt extends Location {
         GraveTrapped;
     }
 
-    public State state;
-    public Ghost homeGhost;
-    public String setInStateBy;
+    private State state;
+    private Ghost homeGhost;
+    private String setInStateBy;
 
     public Crypt(){
 

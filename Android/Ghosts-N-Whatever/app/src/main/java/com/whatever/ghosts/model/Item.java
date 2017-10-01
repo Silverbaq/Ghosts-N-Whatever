@@ -6,11 +6,26 @@ package com.whatever.ghosts.model;
 
 public class Item {
 
-    public String Name;
-    public int Value;
+    private String Name;
+    private int Value;
 
     public Item(){
 
     }
 
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public int getValue() {
+        return Value;
+    }
+
+    public void setValue(int value) {
+        Value = value;
+    }
 }

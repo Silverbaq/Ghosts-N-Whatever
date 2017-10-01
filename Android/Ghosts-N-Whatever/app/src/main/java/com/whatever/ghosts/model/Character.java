@@ -8,22 +8,79 @@ import java.util.List;
 
 public class Character {
 
+    public Location getHome() {
+        return Home;
+    }
+
+    public void setHome(Location home) {
+        Home = home;
+    }
+
+    public int getScore() {
+        return Score;
+    }
+
+    public void setScore(int score) {
+        Score = score;
+    }
+
+    public boolean isFrozen() {
+        return Frozen;
+    }
+
+    public void setFrozen(boolean frozen) {
+        Frozen = frozen;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public Location getCurrentLocation() {
+        return CurrentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        CurrentLocation = currentLocation;
+    }
+
+    public com.whatever.ghosts.model.Backpack getBackpack() {
+        return Backpack;
+    }
+
+    public void setBackpack(com.whatever.ghosts.model.Backpack backpack) {
+        Backpack = backpack;
+    }
+
+    public CharClass getCharacterClass() {
+        return CharacterClass;
+    }
+
+    public void setCharacterClass(CharClass characterClass) {
+        CharacterClass = characterClass;
+    }
+
     public enum CharClass {
         Ghost, Hunter, Robber
     }
 
-    public List<Location> Locations;
-    public Location Home;
-    public int Score;
-    public boolean Frozen;
-    public String Name;
-    public Location CurrentLocation;
-    public Backpack Backpack;
-    public CharClass CharacterClass;
+    private Location Home;
+    private int Score;
+    private boolean Frozen;
+    private String Name;
+    private Location CurrentLocation;
+    private Backpack Backpack;
+    private CharClass CharacterClass;
 
 
     public Character(){
 
     }
+
+
 
 }

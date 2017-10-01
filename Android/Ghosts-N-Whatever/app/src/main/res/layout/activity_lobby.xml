@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="vertical"
     tools:context="com.whatever.ghosts.ghosts_n_whatever.LobbyActivity">
     <LinearLayout
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="8"
@@ -15,11 +17,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
             android:text="You've Join a Game - Wait for it too start"/>
 
         <Button
             android:id="@+id/activity_Lobby_btnAddLocation"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Locations"/>
 
@@ -40,7 +43,8 @@
                 <ImageView
                     android:id="@+id/imageGhost"
                     android:layout_width="100dp"
-                    android:layout_height="150dp"/>
+                    android:layout_height="150dp"
+                    android:src="@mipmap/ghostarrive"/>
 
                 <TextView
                     android:id="@+id/textGhost"
@@ -56,7 +60,8 @@
                 <ImageView
                     android:id="@+id/imageGraverobber"
                     android:layout_width="100dp"
-                    android:layout_height="150dp" />
+                    android:layout_height="150dp"
+                    android:src="@mipmap/grarrive"/>
                 <TextView
                     android:id="@+id/textGraverobber"
                     android:layout_width="wrap_content"
@@ -70,7 +75,8 @@
                 <ImageView
                     android:id="@+id/imageGhostHunter"
                     android:layout_width="100dp"
-                    android:layout_height="150dp" />
+                    android:layout_height="150dp"
+                    android:src="@mipmap/gh_arrive"/>
                 <TextView
                     android:id="@+id/textGhostHunter"
                     android:layout_width="wrap_content"

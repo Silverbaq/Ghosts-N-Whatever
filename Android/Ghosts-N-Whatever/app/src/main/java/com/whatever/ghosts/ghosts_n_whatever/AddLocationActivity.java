@@ -17,6 +17,7 @@ import com.whatever.ghosts.model.Village;
 
 public class AddLocationActivity extends AppCompatActivity implements QRScanner.IQRReadValue {
 
+
     TextView tvQRCode;
     Button btnAddLocation;
 
@@ -40,10 +41,12 @@ public class AddLocationActivity extends AppCompatActivity implements QRScanner.
                 Location location;
                 if (locationType.equals("Crypt")){
                     location = new Crypt();
-                    location.Name = codeValue;
+                    location.setName(codeValue);
+                    location.setVillage(false);
                 } else {
                     location = new Village();
-                    location.Name = codeValue;
+                    location.setName(codeValue);
+                    location.setVillage(true);
                 }
 
                 DatabaseReference myRef = database.getReference("Games").child(MyApp.gameID).child("Locations").child(locationType).push();
@@ -77,5 +80,10 @@ public class AddLocationActivity extends AppCompatActivity implements QRScanner.
                     break;
         }
     }
+
+
+
+
+
 
 }

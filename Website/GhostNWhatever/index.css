@@ -1,0 +1,95 @@
+body  {
+    background-image: url("./img/intro_image.png");
+    background-size: 100%;
+}
+
+#create {
+    padding-left: 130px;
+    padding-top: 0px;
+}
+
+.container {
+    width: 30%;
+    margin: auto;
+}
+
+.gif {
+    width: 40%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.games {
+    padding-top: 40px;
+}
+
+.title {
+    font-size: 24px;
+    font-family: 'Rock Salt', cursive;
+}
+
+.list  {
+    list-style: none;
+    padding-left: 0px;
+    font-family: 'Rock Salt', cursive;
+    font-size: 14px;
+}
+
+ul li:hover {
+    color: #806000;
+    cursor: pointer;
+}
+
+div.myButton input {
+    background:url(./images/Btn.PNG) no-repeat;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    border: none;
+}
+#lobby {
+    font-family: 'Coming Soon';
+    font-size: 26px;
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+.extra-padding {
+    padding-top: 105px;
+}
+
+.font-2 {
+    font-family: "Rock Salt", cursive;
+}
+
+.players {
+    font-family: 'Rock Salt', cursive;
+    font-size: medium;
+}
+
+.timer {
+    font-family: 'Coming Soon';
+    list-style: none;
+}
+
+#clock {
+    padding-top: 105px;
+    font-family: "Coming Soon";
+    font-size: 40px;
+}
+
+ol li {
+    list-style: none;
+    padding-right: 0;
+    margin: 0;
+}
+
+.list2 {
+    list-style: none;
+    padding-left: 0px;
+    font-family: 'Coming Soon', cursive;
+    font-size: 14px;
+}
