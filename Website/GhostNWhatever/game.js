@@ -33,24 +33,50 @@ var playersRef = database.ref('Games').child(gameName).child('Players');
 
 playersRef.on('child_added', function(data){
     var playerList = document.getElementById('players');
-    var playerName = data.val().Name;
-    var playerScore = data.val().Score;
+    var playerName = data.val().name;
+    var playerScore = data.val().score;
+    var playerClass = data.val().characterClass;
+    var playerItem;
+
+    if (data.val().backpack === undefined){
+        playerItem = "Empty";
+    } else {
+       playerItem = data.val().backpack.items[0].name;
+    }
 
     var listItem = document.createElement('li');
     listItem.setAttribute('id', data.key);
 
     playerList.appendChild(listItem);
 
-    listItem.innerHTML = playerName + " - " + playerScore + " points.";
+    listItem.innerHTML = playerName + " - Class: " + playerClass + " - Backpack: " + playerItem + " - " + playerScore + " points.";
 });
+
+var currentlyWinning = {
+    name: "None",
+    score: 0
+};
 
 // Update Scores throughout the game
 playersRef.on('child_changed', function(data){
    var listItem = document.getElementById(data.key);
-   var playerName = data.val().Name;
-   var playerScore = data.val().Score;
+   var playerName = data.val().name;
+   var playerScore = data.val().score;
+   var playerClass = data.val().characterClass;
+   var playerItem;
 
-    listItem.innerHTML = playerName + " - " + playerScore + " points.";
+   if (data.val().score > currentlyWinning.score){
+       currentlyWinning = data.val();
+   }
+
+
+   if (data.val().backpack === undefined){
+       playerItem = "Empty";
+   } else {
+       playerItem = data.val().backpack.items[0].name;
+   }
+
+    listItem.innerHTML = playerName + " - Class: " + playerClass + " - Backpack: " + playerItem + " - " + playerScore + " points.";
 });
 
 function startGame(){
@@ -62,11 +88,11 @@ function startGame(){
   generateRoles();
   setGameStateOnDB('Running');
   runTimer(selection, timerDiv);
-};
+}
 
 function runTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    var intervalID = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -74,11 +100,13 @@ function runTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         updateGameTimeOnDB(timer);
-        display.innerHTML = minutes + ":" + seconds;
+        display.innerHTML = "<div id='clock'> " + minutes + ":" + seconds + "</div>";
 
         if (--timer < 0) {
             timer = 0;
             setGameStateOnDB('Ended');
+            displayWinner();
+            clearInterval(intervalID);
         } else {
 
         }
@@ -121,7 +149,7 @@ function generateRoles(){
 }
 
 function assignClass(playerRef, role){
-        playerRef.child('CharacterClass').set(role);
+        playerRef.child('characterClass').set(role);
     };
 
 function pickRandomClass(){
@@ -133,4 +161,15 @@ function pickRandomClass(){
     } else {
         return 'Ghost';
     }
+}
+
+function displayWinner(){
+    var div = document.getElementById('timer');
+
+    div.innerHTML = "<h4 class='extra-padding'>" + currentlyWinning.name + " has won the game with " + currentlyWinning.score + " points</h4><button onclick='endGame()'>Play Again!</button>";
+}
+
+function endGame(){
+    var gameRef = database.ref('Games').child(gameName).remove();
+    window.location.href = "./index.html";
 }

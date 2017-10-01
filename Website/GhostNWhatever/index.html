@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Ghost 'n' Whatever</title>
+    <link href="https://fonts.googleapis.com/css?family=Coming+Soon|Rock+Salt" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
 
-<h1>Ghost 'n' Whatever</h1>
+<div class="gif">
+    <img src="./img/logo.gif" alt="">
+</div>
+<div class="container">
 
-<h3>Games:</h3>
-<ul id="games">
+    <div class="games">
+        <h3 class="title">Games <span id="create"><input type="image" src="./img/create_both.png" width="100" onclick="createGame()"></span></h3>
+        <ul class="list" id="games">
 
-</ul>
+        </ul>
+    </div>
+</div>
 
-<button onclick="createGame()">Create Game</button>
 
 <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
 <script src="index1.js"></script>

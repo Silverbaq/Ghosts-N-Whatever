@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Ghost 'n' Whatever</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Coming+Soon|Rock+Salt" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./index.css">
 </head>
 <body>
 <div class="container">
-            <h1>Game Overview</h1>
+
+    <div>
+        <h1 class="title extra-padding">Game Overview</h1>
+    </div>
+    <div class="row">
     <div class="game-lobby">
-            <h4>Game lobby: <span id="lobby">XYZ</span></h4>
+            <h4 class="font-2">GameCode: <span id="lobby" class="lobby">XYZ</span></h4>
     </div>
 
     <div class="timer" id="timer">
-        <h4>Game length:</h4>
+        <h4 class="extra-padding font-2">How long do you wish to play?</h4>
         <select name="time" id="game-length">
             <option value="1">1 minute</option>
             <option value="5">5 minutes</option>
@@ -23,9 +28,9 @@
         <button onclick="startGame()">Start Game</button>
     </div>
 
-    <div>
-        <h2>Players:</h2>
-        <ol id="players">
+    <div id="winner">
+        <h2 class="players">Players:</h2>
+        <ol class="list2" id="players">
         </ol>
     </div>
 
