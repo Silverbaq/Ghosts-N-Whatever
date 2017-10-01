@@ -1,7 +1,13 @@
 package com.whatever.ghosts.model;
 
+import android.util.Log;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.whatever.ghosts.ghosts_n_whatever.MyApp;
 
 /**
@@ -10,9 +16,12 @@ import com.whatever.ghosts.ghosts_n_whatever.MyApp;
 
 public class Location {
 
+    final String TAG = "Location";
+
     private String Name;
     private Boolean Village;
     private Boolean Traped;
+    private String HunterID;
     public String Key;
 
     public Location() {
@@ -27,6 +36,8 @@ public class Location {
                     item1.setName("Soul");
                     item1.setValue(10);
                     player.getBackpack().addItem(item1);
+                    Log.d(TAG, "Ghost added soul");
+
                     break;
                 case Robber:
                     int value = player.getBackpack().UseItem();
@@ -44,20 +55,42 @@ public class Location {
             //Crypt crypt = (Crypt)this;
             switch (player.getCharacterClass()) {
                 case Ghost:
-                    int value = player.getBackpack().UseItem();
-                    player.setScore(player.getScore() + value);
+                    if(getTraped() != null && getTraped()){
+                        player.setScore(player.getScore() - 5);
+                        player.getBackpack().UseItem();
+                        setTraped(false);
+                        // TODO: give hunter points
+                        giveHunterPoints(25);
+                    } else {
+                        int value = player.getBackpack().UseItem();
+                        player.setScore(player.getScore() + value);
+                    }
                     break;
                 case Hunter:
-                    if (!getTraped()) {
+                    if (getTraped() == null || !getTraped()) {
                         if (player.getBackpack().getItems().size() > 0) {
                             int points = player.getBackpack().UseItem();
-                            setTraped(true);
 
+                            setTraped(true);
+                            setHunterID(MyApp.playerID);
+                            MyApp.AddUpdateLocation(Location.this);
                         }
+                    } else if (getTraped() == null){
+                        // TODO : add trap and save updated location on firebase
+
                     }
                     break;
                 case Robber:
-
+                    if (getTraped() != null && getTraped()){
+                        if (player.getBackpack().getItems().size() < 0){
+                            setTraped(false);
+                            MyApp.AddUpdateLocation(Location.this);
+                            Item item = new Item();
+                            item.setName("Trap");
+                            item.setValue(25);
+                            player.getBackpack().addItem(item);
+                        }
+                    }
                     break;
             }
         }
@@ -90,5 +123,35 @@ public class Location {
 
     public void setTraped(Boolean traped) {
         Traped = traped;
+    }
+
+    public String getHunterID() {
+        return HunterID;
+    }
+
+    public void setHunterID(String hunterID) {
+        HunterID = hunterID;
+    }
+
+    private void giveHunterPoints(final int points){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Games").child(MyApp.gameID).child("Players").child(getHunterID());
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                try {
+                    Character character = dataSnapshot.getValue(Character.class);
+                    character.setScore(character.getScore() + points);
+                    MyApp.AddUpdateCharacter(character);
+                } catch (Exception ex){
+                    Log.e(TAG, "Giving hunter points failed!: " + ex.getMessage());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

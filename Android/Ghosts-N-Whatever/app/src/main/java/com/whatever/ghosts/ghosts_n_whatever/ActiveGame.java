@@ -2,6 +2,7 @@ package com.whatever.ghosts.ghosts_n_whatever;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -48,8 +49,13 @@ public class ActiveGame extends AppCompatActivity implements QRScanner.IQRReadVa
         gameRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                game = (dataSnapshot.getValue(Game.class));
-                tvTimeLeft.setText(""+ game.getGameTime());
+                try {
+                    game = (dataSnapshot.getValue(Game.class));
+                    tvTimeLeft.setText("" + game.getGameTime());
+                    tvItem.setText(game.getCharacters().get(MyApp.playerID).getBackpack().toString());
+                } catch (Exception ex){
+                    Log.e(TAG, "Reciving Game failed!" +ex.getMessage());
+                }
             }
 
             @Override
@@ -62,19 +68,23 @@ public class ActiveGame extends AppCompatActivity implements QRScanner.IQRReadVa
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                character = dataSnapshot.getValue(Character.class);
-                character.setBackpack(new Backpack());
-                character.getBackpack().setItems(new ArrayList<Item>());
+                try {
+                    character = dataSnapshot.getValue(Character.class);
+                    if (character.getBackpack() == null) { //TODO: Fix this on the website, so it create all the values connectly
+                        character.setBackpack(new Backpack());
+                        character.getBackpack().setItems(new ArrayList<Item>());
+                    }
 
-                tvPlayerName.setText(character.getName());
-                tvCharacterRole.setText(character.getCharacterClass().toString());
-                tvScore.setText(""+ character.getScore());
-                if (character.getBackpack().getItems().size() > 0) {
-
-                    tvItem.setText(character.getBackpack().getItems().get(0).getName());
-                }
-                else{
-                    tvItem.setText("Empty");
+                    tvPlayerName.setText(character.getName());
+                    tvCharacterRole.setText(character.getCharacterClass().toString());
+                    tvScore.setText("" + character.getScore());
+                    if (character.getBackpack().getItems().size() > 0) {
+                        tvItem.setText(character.getBackpack().getItems().get(0).getName());
+                    } else {
+                        tvItem.setText("Empty");
+                    }
+                } catch (Exception ex){
+                    Log.e(TAG, "Getting Character failed! " + ex.getMessage());
                 }
             }
 
@@ -97,13 +107,18 @@ public class ActiveGame extends AppCompatActivity implements QRScanner.IQRReadVa
 
     Location findLocation(HashMap<String, Location> villages, HashMap<String, Location> crypts, String checkValue){
         Location somewhere = null;
-        for (Location l : villages.values()){
-            if (l.getName().equals(checkValue))
-                somewhere = l;
-        }
-        for (Location l : crypts.values()){
+        for (String k : villages.keySet()){
+            Location l = villages.get(k);
             if (l.getName().equals(checkValue)){
                 somewhere = l;
+                somewhere.Key = k;
+            }
+        }
+        for (String k : crypts.keySet()){
+            Location l = crypts.get(k);
+            if (l.getName().equals(checkValue)){
+                somewhere = l;
+                somewhere.Key = k;
             }
         }
         return somewhere;

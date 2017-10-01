@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="100"
+    android:weightSum="10"
     tools:context="com.whatever.ghosts.ghosts_n_whatever.ActiveGame">
 
     <fragment
         android:id="@+id/activity_game_qrScanner"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="50"
+        android:layout_weight="5"
         android:name="com.whatever.ghosts.fragments.QRScanner" />
 
     <ProgressBar
@@ -20,12 +20,12 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10" />
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="40"
+        android:layout_weight="4"
         android:weightSum="2"
         android:orientation="horizontal">
 

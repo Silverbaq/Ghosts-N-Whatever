@@ -67,8 +67,12 @@ public class JoinGame extends AppCompatActivity {
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Game game = dataSnapshot.getValue(Game.class);
-                gameList.put(game.getGameCode(), dataSnapshot.getKey());
+                try {
+                    Game game = dataSnapshot.getValue(Game.class);
+                    gameList.put("" + game.getGameCode(), dataSnapshot.getKey());
+                } catch (Exception ex){
+                    Log.e(TAG, ex.getMessage());
+                }
             }
 
             @Override

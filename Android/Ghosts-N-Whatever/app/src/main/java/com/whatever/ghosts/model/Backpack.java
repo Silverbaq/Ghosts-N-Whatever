@@ -26,8 +26,10 @@ public class Backpack {
 
     public int UseItem() {
         if (this.getItems().size() > 0) {
-            Item item = getItems().remove(0);
-            return item.getValue();
+            Item item = getItems().get(0);
+            int value = item.getValue();
+            Items.remove(item);
+            return value;
         }
         return 0;
     }
@@ -36,4 +38,14 @@ public class Backpack {
     public void setItems(List<Item> items) {
         Items = items;
     }
+
+
+    @Override
+    public String toString(){
+    String result = "";
+        for (Item i : getItems()){
+            result += i.getName();
+        }
+        return result;
+   }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/crypt"
     android:weightSum="2"
     tools:context="com.whatever.ghosts.ghosts_n_whatever.MainActivity"
     android:orientation="vertical">

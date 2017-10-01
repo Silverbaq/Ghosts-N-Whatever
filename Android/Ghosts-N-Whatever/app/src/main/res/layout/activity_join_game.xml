@@ -21,7 +21,8 @@
         android:layout_height="59dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Game Code"/>
+        android:hint="gam3code"
+        android:text=""/>
 
     <Button
         android:id="@+id/activity_joingame_btnJoin"
