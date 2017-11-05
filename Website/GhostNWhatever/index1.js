@@ -2,12 +2,9 @@
 
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyB0apCFC3WRnF75Azql9EEvT4qEHBC6gVM",
-    authDomain: "ghostsandwhatever.firebaseapp.com",
-    databaseURL: "https://ghostsandwhatever.firebaseio.com",
-    projectId: "ghostsandwhatever",
-    storageBucket: "ghostsandwhatever.appspot.com",
-    messagingSenderId: "914678984501"
+    // *************************************
+    // Insert Firebase config here
+    // *************************************
 };
 firebase.initializeApp(config);
 
